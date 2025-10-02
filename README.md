@@ -32,3 +32,15 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
 5. Para "ver" sua API funcionando você pode visualizar os gráficos das capturas sendo exibidos no seu navegador pelo caminho **http://localhost:3300** ou efetuando SELECT no seu Banco de Dados, caso tenha optado por inseri-los.
 
 6. Caso queira parar a API, tecle **CTRL+C** no terminal em que a API está rodando.
+
+7. Deixe o Oracle VirtualBox aberto com a máquina virtual Lubuntu ligada.
+
+8. Criar usuário SMF utilizando o usuário SPTECH cujo a senha é "urubu100".
+
+9. Entrar no usuário SMF.
+
+10. Crie um usuário no MySQL Workbench com as seguintes configurações
+    Hostname: "127.0.0.1" ou "localhost"
+    Username: "SMF"
+    Password: "urubu100"
+    Port: 3307
