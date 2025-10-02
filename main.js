@@ -23,7 +23,7 @@ const serial = async (
             user: 'SMF',
             password: 'urubu100',
             database: 'smf',
-            port: 3307
+            port: 3306
         }
     ).promise();
 
