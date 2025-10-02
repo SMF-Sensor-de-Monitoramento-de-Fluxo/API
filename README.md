@@ -40,7 +40,7 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
 9. Entrar no usuário SMF.
 
 10. Crie um usuário no MySQL Workbench com as seguintes configurações
-    Hostname: "127.0.0.1" ou "localhost"
-    Username: "SMF"
-    Password: "urubu100"
-    Port: 3307
+    ``` Hostname: "127.0.0.1" ou "localhost"
+    ``` Username: "SMF"
+    ``` Password: "urubu100"
+    ``` Port: 3307
