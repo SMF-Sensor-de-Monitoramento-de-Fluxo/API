@@ -29,7 +29,7 @@ const serial = async (
     // lista as portas seriais disponíveis e procura pelo Arduino
     const portas = await serialport.SerialPort.list();
     console.log(portas);
-    const portaArduino = portas.find((porta) => (porta.vendorId == 2341 && porta.productId == 43) || (porta.vendorId == '10C4' && porta.productId == 'EA60'));
+    const portaArduino = portas.find((porta) => (porta.vendorId == 2341 && porta.productId == 43) || (porta.vendorId == '10C4' && porta.productId == 'EA60')); // Adicinado o arduino da Isa
     if (!portaArduino) {
         throw new Error('O arduino não foi encontrado em nenhuma porta serial');
     }
