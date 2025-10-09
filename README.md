@@ -39,8 +39,11 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
 
 9. Entrar no usuário SMF.
 
-10. Crie um usuário no MySQL Workbench com as seguintes configurações
-    ``` Hostname: "127.0.0.1" ou "localhost"
-    ``` Username: "SMF"
-    ``` Password: "urubu100"
-    ``` Port: 3307
+10. Entrar no MySQL da VM com o usuário root
+    ``` Utilize o seguinte comando "mysql -u root -p"
+    ``` Utilize a senha "SPTech#2024"
+
+11. Crie um usuário smf_insert no MySQL
+    ```Utilize o seguinte comando "CREATE USER 'smf_insert'@'%' IDENTIFIED BY 'Urubu#100';"
+
+12. Rodar a API
