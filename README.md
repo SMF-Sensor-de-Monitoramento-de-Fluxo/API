@@ -40,8 +40,10 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
 9. Entrar no usuário SMF.
 
 10. Entrar no MySQL da VM com o usuário root
-    ``` Utilize o seguinte comando "mysql -u root -p"
-    ``` Utilize a senha "SPTech#2024"
+    ``` 
+    Utilize o seguinte comando "mysql -u root -p"
+    Utilize a senha "SPTech#2024"
+    ``` 
 
 11. Crie um usuário smf_insert no MySQL
     ```Utilize o seguinte comando "CREATE USER 'smf_insert'@'%' IDENTIFIED BY 'Urubu#100';"
