@@ -45,7 +45,9 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
     Utilize a senha "SPTech#2024"
     ``` 
 
-11. Crie um usuário smf_insert no MySQL
-    ```Utilize o seguinte comando "CREATE USER 'smf_insert'@'%' IDENTIFIED BY 'Urubu#100';"
+11. Crie um usuário smf_insert com acesso remoto no MySQL da VM
+    ```
+    Utilize o seguinte comando "CREATE USER 'smf_insert'@'%' IDENTIFIED BY 'Urubu#100';"
+    ``` 
 
 12. Rodar a API
