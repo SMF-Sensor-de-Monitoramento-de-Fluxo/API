@@ -50,4 +50,8 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
     Utilize o seguinte comando "CREATE USER 'smf_insert'@'%' IDENTIFIED BY 'Urubu#100';"
     ``` 
 
-12. Rodar a API
+12. De a permissão de apenas INSERT para esse novo usuário
+    ```
+    Utilize o comando "GRANT INSERT smf.* 'smf_insert'@'%'; e depois "FLUSH PRIVILEGES;"
+
+Rodar a API
