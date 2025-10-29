@@ -52,6 +52,6 @@ _O comando acima irá iniciar sua API e efetuar os comandos de acordo com a sua 
 
 12. De a permissão de apenas INSERT para esse novo usuário
     ```
-    Utilize o comando "GRANT INSERT smf.* 'smf_insert'@'%'; e depois "FLUSH PRIVILEGES;"
+    Utilize o comando "GRANT INSERT ON smf.* TO 'smf_insert'@'%'; e depois "FLUSH PRIVILEGES;"
 
 Rodar a API
