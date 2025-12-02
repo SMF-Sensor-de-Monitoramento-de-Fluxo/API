@@ -13,12 +13,20 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // função para comunicação serial
 const serial = async (
     valoresSensorDigital,
+    valoresSensorDigital2,
+    valoresSensorDigital3,
+    valoresSensorDigital4,
+    valoresSensorDigital5,
+    valoresSensorDigital6,
+    valoresSensorDigital7,
+    valoresSensorDigital8,
+    valoresSensorDigital9,
 ) => {
 
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
-            host: 'localhost',
+            host: '10.212.83.5',// ip da maquina que hospeda o banco, mutavel
             user: 'smf_insert',
             password: 'Urubu#100',
             database: 'smf',
@@ -52,20 +60,54 @@ const serial = async (
         console.log(data);
         const valores = data.split(';');
         const sensorDigital = parseInt(valores[0]);
-        const sensorAnalogico = parseFloat(valores[1]); //tirar -----------------------------------
+        const sensorDigital2 = parseInt(valores[0]);
+        const sensorDigital3 = parseInt(valores[0]);
+        const sensorDigital4 = parseInt(valores[0]);
+        const sensorDigital5 = parseInt(valores[0]);
+        const sensorDigital6 = parseInt(valores[0]);
+        const sensorDigital7 = parseInt(valores[0]);
+        const sensorDigital8 = parseInt(valores[0]);
+        const sensorDigital9 = parseInt(valores[0]);
+        //const sensorAnalgico = parseFloat(valores[1]); //tirar -----------------------------------
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresSensorDigital.push(sensorDigital);
+        valoresSensorDigital2.push(sensorDigital2);
+        valoresSensorDigital3.push(sensorDigital3);
+        valoresSensorDigital4.push(sensorDigital4);
+        valoresSensorDigital5.push(sensorDigital5);
+        valoresSensorDigital6.push(sensorDigital6);
+        valoresSensorDigital7.push(sensorDigital7);
+        valoresSensorDigital8.push(sensorDigital8);
+        valoresSensorDigital9.push(sensorDigital9);
+
 
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO SensorLeitura (fkSensor, leitura, dataLeitura) VALUES (1, ?, DEFAULT)', // Inserindo na tabela SensorLeitura
-                [sensorDigital]
+                `INSERT INTO SensorLeitura (fkSensor, leitura, dataLeitura) VALUES 
+                (10, ${sensorDigital}, DEFAULT),
+                (11, ${sensorDigital2}, DEFAULT),
+                (12, ${sensorDigital3}, DEFAULT),
+                (13, ${sensorDigital4}, DEFAULT),
+                (14, ${sensorDigital5}, DEFAULT),
+                (15, ${sensorDigital6}, DEFAULT),
+                (16, ${sensorDigital7}, DEFAULT),
+                (17, ${sensorDigital8}, DEFAULT),
+                (18, ${sensorDigital9}, DEFAULT);`,
             );
+
             console.log("valores inseridos no banco: " + sensorDigital);
+            console.log("valores inseridos no banco: " + sensorDigital2);
+            console.log("valores inseridos no banco: " + sensorDigital3);
+            console.log("valores inseridos no banco: " + sensorDigital4);
+            console.log("valores inseridos no banco: " + sensorDigital5);
+            console.log("valores inseridos no banco: " + sensorDigital6);
+            console.log("valores inseridos no banco: " + sensorDigital7);
+            console.log("valores inseridos no banco: " + sensorDigital8);
+            console.log("valores inseridos no banco: " + sensorDigital9);
 
         }
 
@@ -79,7 +121,16 @@ const serial = async (
 
 // função para criar e configurar o servidor web
 const servidor = (
-    valoresSensorDigital
+    valoresSensorDigital,
+    valoresSensorDigital2,
+    valoresSensorDigital3,
+    valoresSensorDigital4,
+    valoresSensorDigital5,
+    valoresSensorDigital6,
+    valoresSensorDigital7,
+    valoresSensorDigital8,
+    valoresSensorDigital9,
+
 ) => {
     const app = express();
 
@@ -97,7 +148,7 @@ const servidor = (
 
     // define os endpoints da API para cada tipo de sensor
     app.get('/sensores/digital', (_, response) => {
-        return response.json(valoresSensorDigital);
+        return response.json(valoresSensorDigital), response.json(valoresSensorDigital2);
     });
 }
 
@@ -105,14 +156,40 @@ const servidor = (
 (async () => {
     // arrays para armazenar os valores dos sensores
     const valoresSensorDigital = [];
+    const valoresSensorDigital2 = [];
+    const valoresSensorDigital3 = [];
+    const valoresSensorDigital4 = [];
+    const valoresSensorDigital5 = [];
+    const valoresSensorDigital6 = [];
+    const valoresSensorDigital7 = [];
+    const valoresSensorDigital8 = [];
+    const valoresSensorDigital9 = [];
 
     // inicia a comunicação serial
     await serial(
-        valoresSensorDigital
+        valoresSensorDigital,
+        valoresSensorDigital2,
+        valoresSensorDigital3,
+        valoresSensorDigital4,
+        valoresSensorDigital5,
+        valoresSensorDigital6,
+        valoresSensorDigital7,
+        valoresSensorDigital8,
+        valoresSensorDigital9
+
     );
 
     // inicia o servidor web
     servidor(
-        valoresSensorDigital
+        valoresSensorDigital,
+        valoresSensorDigital2,
+        valoresSensorDigital3,
+        valoresSensorDigital4,
+        valoresSensorDigital5,
+        valoresSensorDigital6,
+        valoresSensorDigital7,
+        valoresSensorDigital8,
+        valoresSensorDigital9,
+
     );
 })();
